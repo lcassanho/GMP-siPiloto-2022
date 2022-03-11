@@ -1,0 +1,34 @@
+Switch#enable
+Switch#configure terminal
+Switch(config)#interface range gig0/1-2
+Switch(config-if-range)#switchport mode trunk
+Switch(config-if-range)#switchport trunk allowed vlan all
+Switch(config-if-range)#exit
+Switch(config)#exit
+Switch#
+
+
+Switch#enable
+Switch#configure terminal
+Switch(config)#vlan 20
+Switch(config-vlan)#name grupo20
+Switch(config-vlan)#exit
+Switch(config)#vlan 21
+Switch(config-vlan)#name grupo21
+Switch(config-vlan)#exit
+Switch(config)#vlan 22
+Switch(config-vlan)#name grupo22
+Switch(config-vlan)#exit
+Switch(config)#interface range fa0/1-10
+Switch(config-if-range)#switchport mode access
+Switch(config-if-range)#switchport access vlan 20
+Switch(config-if-range)#exit
+Switch(config)#interface range fa0/11-20
+Switch(config-if-range)#switchport mode access
+Switch(config-if-range)#switchport access vlan 21
+Switch(config-if-range)#exit
+Switch(config)#interface range fa0/21-24
+Switch(config-if-range)#switchport mode access
+Switch(config-if-range)#switchport access vlan 22
+Switch(config-if-range)#exit
+Switch(config)#exit
